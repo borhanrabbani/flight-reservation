@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Flights:</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Airlines</th>
+				<th>Departure City</th>
+				<th>Arrival City</th>
+				<th>Departure Time</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="flight : ${flights}">
+				<td th:text="${flight.operatingAirlines}"/>
+				<td th:text="${flight.departureCity}" />
+				<td th:text="${flight.arrivalCity}" />
+				<td th:text="${flight.estimatedDepartureTime}" />
+				<!-- <td><a href="@{showCompleteReservation(flightId=$flight.id})}">Select</a></td> 
+				<td><a th:href="@{'/showCompleteReservation(flightId=' + ${flight.id} + ')'}">Select</a></td> -->
+				<td><a th:href="@{/showCompleteReservation(flightId=${flight.id})}">Select</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+
+</body>
+</html>

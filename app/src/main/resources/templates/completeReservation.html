@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Reservation</title>
+</head>
+<body>
+    <h2>Complete Reservation</h2>
+    <p>Airline: <span th:text="${flight.operatingAirlines}"></span></p>
+    <p>Departure City: <span th:text="${flight.departureCity}"></span></p>
+    <p>Arrival City: <span th:text="${flight.arrivalCity}"></span></p>
+
+    <form action="completeReservation" method="post">
+        <pre>
+            <h3>Passenger Details:</h3>
+            First Name: <input type="text" th:name="passengerFirstName"/>
+            Last Name: <input type="text" th:name="passengerLastName"/>
+            Email: <input type="text" th:name="passengerEmail"/>
+            Phone: <input type="text" th:name="passengerPhone"/>
+            
+            <h3>Card Details</h3>
+            Name on the card: <input type="text" th:name="nameOnTheCard"/>
+            Card No: <input type="text" th:name="cardNumber"/>
+            Expiry Date: <input type="text" th:name="expirationDate"/>
+            3 Digit Security code: <input type="text" th:name="securityCode"/>
+            
+            <input type="hidden" th:name="flightId" th:value="${flight.id}"/>
+            <input type="submit" value="confirm"/>
+        </pre>
+    </form>
+</body>
+</html>
